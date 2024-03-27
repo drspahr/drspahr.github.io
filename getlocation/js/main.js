@@ -19,16 +19,16 @@ let map;
 async function initMap() {
     // The location of user
     const position = {lat: 38.10042527593918, lng: -97.91837067673404};
-    const {Map} = await google.maps.importLibrary('maps');
-    const {AdvancedMarkerElement} = await google.maps.importLibrary('marker');
+    //const {Map} = await google.maps.importLibrary('maps');
+    //const {AdvancedMarkerElement} = await google.maps.importLibrary('marker');
     // The map
-    map = new Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: position,
         mapId: "Demo_Map_ID",
     });
     //The marker
-    const marker = new AdvancedMarkerElement({
+    const marker = new google.maps.Marker({
         map: map,
         position: position,
         title: "Home",
