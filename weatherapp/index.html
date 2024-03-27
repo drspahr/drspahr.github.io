@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <header>                                                            <!-- Consider rendering header and footer -->
+        <h1>The Day's Weather</h1>
+        <span class="datetime">Monday, March 25th, 2024</span>          <!-- Day/MM/DD/YYY-->
+    </header>
+    <main id="main">  <!-- Grid -->
+        <p class="fHead"><strong>Please Select Your Location</strong></p>
+        <div class="forms">
+            <form id="cityselect">
+                <label for="city"><strong>City, State</strong></label>
+                <input type="text" id="city" name="city">                   <!-- used to pull info from openweather api-->
+                <input type="text" id="state" name="state">                 <!-- used to pull info from openweather api-->
+                <input type="submit" id="submit_city" value="Get Weather">
+            </form>
+            <form id="unitselect">
+                <input type="radio" id="celsius" name="temperature_unit" value="Celsius">       <!-- drives the units temps and pressure are displayed -->
+                <label for="celsius"><strong>Celsius</strong></label><br>
+                <input type="radio" id="fahrenheit" name="temperature_unit" value="Fahrenheit" checked>   <!-- drives the units temps and pressure are displayed -->
+                <label for="fahrenheit"><strong>Fahrenheit</strong></label>
+            </form>
+        </div>
+        <section class="data">                                              <!-- Plan to make this a template to render in -->
+            <h2>Your Weather Today</h2>
+            <div class="weather_icon">
+                <img id="modal_select"src="https://placehold.co/300x300" alt="Weather icon from API">   <!-- When pressed, display modal with forecast -->
+            </div>
+            <div class="weather_information">
+                <div class="sun">
+                    <h3 class="title">Sunrise / Sunset</h3>
+                    <h3 class="info">Sunrise: <span class="sunrise">07:38</span>am</h3> <!-- HH:MM -->
+                    <h3 class="info">Sunset: <span class="sunset">19:45</span>pm</h3>   <!-- HH:MM -->
+                </div>
+                <div class="temperature">
+                    <h3 class="title">Temperature</h3>
+                    <div class="hilow">
+                        <h3 class="hi">High: <span class="tHigh">65</span>&deg;<span class="tUnit">F</span></h3>  <!-- tUnit to be populated based on radio button selection -->
+                        <h3 class="low">Low: <span class="tLow">50</span>&deg;<span class="tUnit">F</span></h3>    <!-- tUnit to be populated based on radio button selection -->
+                    </div>
+                </div>
+                <div class="wind">
+                    <h3 class="title">Wind Speed</h3>
+                    <h3 class="info">Wind: <span class="wind">10</span></h3>
+                    <h3 class="info">Windchill: <span class="chill">N/A</span></h3>
+                </div>
+                <div class="pressure">
+                    <h3 class="title">Barometric Pressure</h3>
+                    <h3 class="info">Pressure: <span class="bPressure"></span></h3>
+                </div>
+                <div class="adjust">
+                    <h3 class="title">Temperature Adjustments</h3>
+                    <h3 class="info">Feels Like: <span class="tadjust"></span></h3>
+                    <h3 class="info">Heat Index: <span class="heat_index"></span></h3>
+                </div>
+            </div>
+        </section>
+        <div class="forecast"></div>
+        <!-- Modal for Mobile View -->
+        <div id="modal-forecast" class="modal">
+            <div class="modal_content">
+                <div class="modal_header">
+                    <h2>Forecast</h2>
+                    <span class="close_button">&times;</span>
+                </div>
+                <div class="modal_body">
+                    <div class="modal_content">
+                        <h3 class="modal_date">Monday</h3>                <!-- To be rendered for a carousel -->
+                        <img class="modal_image" src="https://placehold.co/90x90" alt="Weather icon from API">
+                        <div class="sky_wind">
+                            <p class="ptop">Sky Condition: <span class="sky">Clear</span></p>
+                            <p class="pbtn">Wind Condition: <span class="wCondition">Calm</span></p>
+                        </div>
+                        <div class="modal_temp">
+                            <p class="mtHigh">High: <span class="mHigh">65</span>&deg;<span class="tUnit">F</span></p>
+                            <p class="mtLow">Low: <span class="mLow">50</span>&deg;<span class="tUnit">F</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+</html>
