@@ -5,6 +5,7 @@
 --hunter-green: rgb(30, 49, 25);
 --charcoal: #3d5467ff;
 --lion: rgb(223, 176, 101);
+--lightback: rgb(8, 11, 14);
 /* fonts */
 --headings: Lato, Arial, sans-serif;
 --font-body: "PT Sans Narrow", Arial, sans-serif;
@@ -116,6 +117,22 @@ h2 {
     padding: 1rem 0 1.2rem 0;
 }
 
+footer {
+    background-color: var(--charcoal);
+    line-height: .4rem;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+    font-size: .9rem;
+}
+
+footer p, a{
+    color: var(--lion);
+}
+
+.ack {
+    margin-left: .7rem;
+}
+
 /* Modal */
 .modal {
     display: none;
@@ -213,10 +230,112 @@ h2 {
 .title {display: none;}
 .pressure {display: none;}
 .adjust {display: none;}
+.forecast {display: none;}
+#img_select_small {display: none;}
 
 @media only screen and (min-width: 700px) {
     main {
         grid-template-columns: 42.9% 1fr;
-        grid-template-rows: repeat(7);
+        grid-template-rows: 7fr;
+    }
+
+    .fHead {
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+
+    .forms {
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+
+    .data h2 {
+        margin-bottom: 1.8rem;
+    }
+
+    #img_select {
+        display: none;
+    }
+
+    .weather_icon {
+        width: 150px;
+        height: 150px;
+    }
+
+    #img_select_small {
+        display: block;
+    }
+
+    .temperature {
+        font-size: 1.3rem;
+    }
+
+    .sun {
+        display: block;
+        font-size: 1.3rem;
+        text-align: center;
+        margin-top: .5rem;
+    }
+
+    .sun .info {
+        margin: .2rem;
+    }
+    
+    .forecast {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .forecast h2 {
+        margin-bottom: 0;
+    }
+
+    .fInfo {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .fDay {
+        margin-top: 0;
+        margin-bottom: .2rem;
+        color: var(--hunter-green);
+    }
+
+    .fImg {
+        border-radius: 10%;
+        border: solid;
+        border-color: black;
+    }
+
+    .fTemp, .fWindBar {
+        font-size: 1.3rem;
+        color: var(--lightback);
+    }
+
+    .fTemp {
+        margin-bottom: 1.1rem;
+        margin-top: .3rem;
+    }
+
+    .fWindBar {
+        margin-bottom: 1.3rem;
+    }
+
+    .fHigh, .fLow {
+        margin: 5px 0;
+    }
+
+    .fWind, .fBar {
+        margin: 5px 0;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 25rem;
     }
 }

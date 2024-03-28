@@ -38,7 +38,8 @@
         <section class="data">                                              <!-- Plan to make this a template to render in -->
             <h2>Your Weather Today</h2>
             <div class="weather_icon">
-                <img id="modal_select"src="https://placehold.co/300x300" alt="Weather icon from API">   <!-- When pressed, display modal with forecast -->
+                <img id="img_select"src="https://placehold.co/300x300" alt="Weather icon from API">
+                <img id="img_select_small" src="https://placehold.co/150x150" alt="Weather icon from API">   <!-- When pressed, display modal with forecast -->
             </div>
             <div class="weather_information">
                 <div class="sun">
@@ -69,7 +70,21 @@
                 </div>
             </div>
         </section>
-        <div class="forecast"></div>
+        <div class="forecast">
+            <h2>The Next 5-Days</h2>
+            <div class="fInfo">
+                <h3 class="fDay">Monday</h3>
+                <img class="fImg" src="https://placehold.co/150x150" alt="Weather icon from API">
+                <div class="fTemp">
+                    <h3 class="fHigh">High: <span class="fHiValue">67</span>&deg;<span class="tUnit">F</span></h3>
+                    <h3 class="fLow">Low: <span class="fLowValue">52</span>&deg;<span class="tUnit">F</span></h3>
+                </div>
+                <div class="fWindBar">
+                    <h3 class="fWind">Wind: <span class="fWindValue">12</span><span class="fUnit">mph</span></h3>
+                    <h3 class="fBar">Pressure: <span class="fPres">29.29</span><span class="fPunit">inHg</span></h3>
+                </div>
+            </div>
+        </div>
         <!-- Modal for Mobile View -->
         <div id="modal-forecast" class="modal">
             <div class="modal_content">
@@ -95,7 +110,8 @@
         </div>
     </main>
     <footer>
-
+        <p class="ack">All weather data provided by: <a href="https://openweathermap.org">OpenWeather</a></p>
+        <p class="ident">&copy; <span class="year"></span></p>
     </footer>
     <script src="./js/main.js"></script>
 </body>
