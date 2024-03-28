@@ -37,4 +37,3 @@ async function initMap() {
 
 initMap();
 
-// const apiKey = "AIzaSyCd8eRTAaNNAXnBsVJ8ADdk0aVGEnedVcs"
