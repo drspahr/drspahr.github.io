@@ -1,52 +1,20 @@
-const currentUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Hutchinson,KS,US&units=imperial&appid=6018f46e2305c3ccbf39479a93a557cc';
-const forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=Hutchinson,KS,US&units=imperial&appid=6018f46e2305c3ccbf39479a93a557cc';
+import WeatherData from "./WeatherData.mjs";
+import { openForecast, closeForecast, outsideClick } from "./Modal.mjs";
 
-class WeatherData {
-    constructor() {
+const submit_Loc = document.getElementById('submit_city');
 
-    }
-    async getWeather(url) {
-        try {
-            const response = await fetch(url);
-            if (response.ok) {
-                const data = await response.json();
-                console.log(data);
-            } else {
-                throw Error(await response.text());
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }
-}
+// let city = "";
+// let state = "";
 
-// Get modal element
-const modal = document.getElementsByClassName('modal')[0];
-// Get open modal element
-const imgDiv = document.querySelector('.weather_icon');
-// Get close modal element
-const closeModal = document.getElementsByClassName('close_button')[0];
+submit_Loc.addEventListener('click', (e) => {
+    e.preventDefault();
+    const citySel = document.getElementById('city');
+    const stateSel = document.getElementById('state');
+    const city = citySel.value;
+    const state = stateSel.value;
+    const weather = new WeatherData(city, state);
+    weather.init();
+});
 
-// Listen for open
-imgDiv.addEventListener('click', openForecast);
-// Listen for close
-closeModal.addEventListener('click', closeForecast);
-window.addEventListener('click', outsideClick);
-window.addEventListener('resize', function() {
-    if (this.window.innerWidth >= 700) {
-        modal.style.display = "none";
-    }
-})
-
-function openForecast() {
-    if (window.innerWidth <= 699)
-    modal.style.display = "block";
-}
-
-function closeForecast() {
-    modal.style.display = "none";
-}
-
-function outsideClick(e) {
-    if (e.target == modal) modal.style.display = "none";
-}
+// const weather = new WeatherData(city, state);
+// weather.init();
