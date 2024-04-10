@@ -1,12 +1,15 @@
 // Get modal element
 const modal = document.getElementsByClassName('modal')[0];
+
 // Get open modal element
 const imgDiv = document.querySelector('.weather_icon');
+
 // Get close modal element
 const closeModal = document.getElementsByClassName('close_button')[0];
 
 // Listen for open
 imgDiv.addEventListener('click', openForecast);
+
 // Listen for close
 closeModal.addEventListener('click', closeForecast);
 window.addEventListener('click', outsideClick);
