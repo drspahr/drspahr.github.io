@@ -1,10 +1,12 @@
 import WeatherData from "./WeatherData.mjs";
+import { getDateTime } from "./Utilities.mjs";
 import { openForecast, closeForecast, outsideClick } from "./Modal.mjs";
 
-const submit_Loc = document.getElementById('submit_city');
+const todayDate = getDateTime(new Date());
+document.querySelector('.datetime').textContent = todayDate;
+document.querySelector('.year').textContent = new Date().getFullYear();
 
-// let city = "";
-// let state = "";
+const submit_Loc = document.getElementById('submit_city');
 
 submit_Loc.addEventListener('click', (e) => {
     e.preventDefault();

@@ -35,29 +35,29 @@
                 <label for="fahrenheit"><strong>Fahrenheit</strong></label>
             </form>
         </div>
-        <section class="data">                                              <!-- Plan to make this a template to render in -->
-            <h2>Your Weather Today</h2>
+        <section class="data">  
+            <h2>Your Weather Today</h2>                                            
             <div class="weather_icon">
                 <img id="img_select"src="https://placehold.co/300x300" alt="Weather icon from API">
-                <img id="img_select_small" src="https://placehold.co/150x150" alt="Weather icon from API">   <!-- When pressed, display modal with forecast -->
+                <img id="img_select_small" src="https://placehold.co/150x150" alt="Weather icon from API">  
             </div>
             <div class="weather_information">
                 <div class="sun">
                     <h3 class="title">Sunrise / Sunset</h3>
-                    <h3 class="info">Sunrise: <span class="sunrise">07:38</span>am</h3> <!-- HH:MM -->
-                    <h3 class="info">Sunset: <span class="sunset">19:45</span>pm</h3>   <!-- HH:MM -->
+                    <h3 class="info">Sunrise: <span class="sunrise"></span>am</h3> 
+                    <h3 class="info">Sunset: <span class="sunset"></span>pm</h3>   
                 </div>
                 <div class="temperature">
                     <h3 class="title">Temperature</h3>
                     <div class="hilow">
-                        <h3 class="hi">High: <span class="tHigh">65</span>&deg;<span class="tUnit">F</span></h3>  <!-- tUnit to be populated based on radio button selection -->
-                        <h3 class="low">Low: <span class="tLow">50</span>&deg;<span class="tUnit">F</span></h3>    <!-- tUnit to be populated based on radio button selection -->
+                        <h3 class="hi">High: <span class="tHigh"></span>&deg;<span class="tUnit">F</span></h3>  
+                        <h3 class="low">Low: <span class="tLow"></span>&deg;<span class="tUnit">F</span></h3>    
                     </div>
                 </div>
                 <div class="wind">
                     <h3 class="title">Wind Speed</h3>
-                    <h3 class="info">Wind: <span class="wind">10</span></h3>
-                    <h3 class="info">Windchill: <span class="chill">N/A</span></h3>
+                    <h3 class="info">Wind: <span class="wind"></span></h3>
+                    <h3 class="info">Windchill: <span class="chill"></span></h3>
                 </div>
                 <div class="pressure">
                     <h3 class="title">Barometric Pressure</h3>
@@ -71,67 +71,8 @@
             </div>
         </section>
         <div class="forecast">
-            <h2>The Next 5-Days</h2>
-            <div id="fInfo" class="day1">
-                <h3 class="fDay1">Monday</h3>
-                <img class="fImg" src="https://placehold.co/50x50" alt="Weather icon from API">
-                <div class="fTemp">
-                    <h3 class="fHigh">High: <span class="fHiValue">67</span>&deg;<span class="tUnit">F</span></h3>
-                    <h3 class="fLow">Low: <span class="fLowValue">52</span>&deg;<span class="tUnit">F</span></h3>
-                </div>
-                <div class="fWindBar">
-                    <h3 class="fWind">Wind: <span class="fWindValue">12</span><span class="fUnit">mph</span></h3>
-                    <h3 class="fBar">Pressure: <span class="fPres">29.29</span><span class="fPunit">inHg</span></h3>
-                </div>
-            </div>
-            <div id="fInfo" class="day2">
-                <h3 class="fDay2">Tuesday</h3>
-                <img class="fImg" src="https://placehold.co/50x50" alt="Weather icon from API">
-                <div class="fTemp">
-                    <h3 class="fHigh">High: <span class="fHiValue">67</span>&deg;<span class="tUnit">F</span></h3>
-                    <h3 class="fLow">Low: <span class="fLowValue">52</span>&deg;<span class="tUnit">F</span></h3>
-                </div>
-                <div class="fWindBar">
-                    <h3 class="fWind">Wind: <span class="fWindValue">12</span><span class="fUnit">mph</span></h3>
-                    <h3 class="fBar">Pressure: <span class="fPres">29.29</span><span class="fPunit">inHg</span></h3>
-                </div>
-            </div>
-            <div id="fInfo" class="day3">
-                <h3 class="fDay3">Wednesday</h3>
-                <img class="fImg" src="https://placehold.co/50x50" alt="Weather icon from API">
-                <div class="fTemp">
-                    <h3 class="fHigh">High: <span class="fHiValue">67</span>&deg;<span class="tUnit">F</span></h3>
-                    <h3 class="fLow">Low: <span class="fLowValue">52</span>&deg;<span class="tUnit">F</span></h3>
-                </div>
-                <div class="fWindBar">
-                    <h3 class="fWind">Wind: <span class="fWindValue">12</span><span class="fUnit">mph</span></h3>
-                    <h3 class="fBar">Pressure: <span class="fPres">29.29</span><span class="fPunit">inHg</span></h3>
-                </div>
-            </div>
-            <div id="fInfo" class="day4">
-                <h3 class="fDay4">Thursday</h3>
-                <img class="fImg" src="https://placehold.co/50x50" alt="Weather icon from API">
-                <div class="fTemp">
-                    <h3 class="fHigh">High: <span class="fHiValue">67</span>&deg;<span class="tUnit">F</span></h3>
-                    <h3 class="fLow">Low: <span class="fLowValue">52</span>&deg;<span class="tUnit">F</span></h3>
-                </div>
-                <div class="fWindBar">
-                    <h3 class="fWind">Wind: <span class="fWindValue">12</span><span class="fUnit">mph</span></h3>
-                    <h3 class="fBar">Pressure: <span class="fPres">29.29</span><span class="fPunit">inHg</span></h3>
-                </div>
-            </div>
-            <div id="fInfo" class="day5">
-                <h3 class="fDay5">Friday</h3>
-                <img class="fImg" src="https://placehold.co/50x50" alt="Weather icon from API">
-                <div class="fTemp">
-                    <h3 class="fHigh">High: <span class="fHiValue">67</span>&deg;<span class="tUnit">F</span></h3>
-                    <h3 class="fLow">Low: <span class="fLowValue">52</span>&deg;<span class="tUnit">F</span></h3>
-                </div>
-                <div class="fWindBar">
-                    <h3 class="fWind">Wind: <span class="fWindValue">12</span><span class="fUnit">mph</span></h3>
-                    <h3 class="fBar">Pressure: <span class="fPres">29.29</span><span class="fPunit">inHg</span></h3>
-                </div>
-            </div>
+            <h3>Select Desired City and State</h3>
+            <h3>Press Get Weather</h3>
         </div>
         <!-- Modal for Mobile View -->
         <div id="modal-forecast" class="modal">
@@ -142,19 +83,43 @@
                 </div>
                 <div class="modal_body">
                     <div class="modal_content">
-                        <h3 class="modal_date">Monday</h3>                <!-- To be rendered for a carousel -->
-                        <img class="modal_image" src="https://placehold.co/90x90" alt="Weather icon from API">
-                        <div class="sky_wind">
-                            <p class="ptop">Sky Condition: <span class="sky">Clear</span></p>
-                            <p class="pbtn">Wind Condition: <span class="wCondition">Calm</span></p>
-                        </div>
+                        <h3 class="modal_date1"></h3>
+                        <img class="modal_image1" src="https://placehold.co/90x90" alt="Weather icon from API">
                         <div class="modal_temp">
-                            <p class="mtHigh">High: <span class="mHigh">65</span>&deg;<span class="tUnit">F</span></p>
-                            <p class="mtLow">Low: <span class="mLow">50</span>&deg;<span class="tUnit">F</span></p>
+                            <p class="mtHigh1">High: <span class="mHigh1"></span>&deg;<span class="tUnit">F</span></p>
+                        </div>
+                    </div>
+                    <div class="modal_content">
+                        <h3 class="modal_date2"></h3>
+                        <img class="modal_image2" src="https://placehold.co/90x90" alt="Weather icon from API">
+                        <div class="modal_temp">
+                            <p class="mtHigh2">High: <span class="mHigh2"></span>&deg;<span class="tUnit">F</span></p>
+                        </div>
+                    </div>
+                    <div class="modal_content">
+                        <h3 class="modal_date3"></h3>
+                        <img class="modal_image3" src="https://placehold.co/90x90" alt="Weather icon from API">
+                        <div class="modal_temp3">
+                            <p class="mtHigh3">High: <span class="mHigh3">65</span>&deg;<span class="tUnit">F</span></p>
+                        </div>
+                    </div>
+                    <div class="modal_content">
+                        <h3 class="modal_date4"></h3>
+                        <img class="modal_image4" src="https://placehold.co/90x90" alt="Weather icon from API">
+                        <div class="modal_temp">
+                            <p class="mtHigh4">High: <span class="mHigh4"></span>&deg;<span class="tUnit">F</span></p>
+                        </div>
+                    </div>
+                    <div class="modal_content">
+                        <h3 class="modal_date5"></h3>
+                        <img class="modal_image5" src="https://placehold.co/90x90" alt="Weather icon from API">
+                        <div class="modal_temp">
+                            <p class="mtHigh5">High: <span class="mHigh5"></span>&deg;<span class="tUnit">F</span></p>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- link tags -->
         </div>
     </main>
     <footer>

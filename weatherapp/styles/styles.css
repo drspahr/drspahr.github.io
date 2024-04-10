@@ -1,6 +1,7 @@
 :root {
 /* colors */
 --french-gray: #c9cad9ff;
+--img-background: rgb(110, 202, 245);
 --chestnut: rgb(189, 79, 67);
 --hunter-green: rgb(30, 49, 25);
 --charcoal: #3d5467ff;
@@ -33,14 +34,14 @@ h1 {
 
 main {
     max-width: 100vw;
-    max-height: 100vh;
+    height: 100vh;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     background-image: url("../images/rsz_1img_0177.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    color: var(--lion);
+    /* color: var(--lion); */
 }
 
 h2, p {
@@ -96,6 +97,7 @@ h2 {
     border: solid;
     border-radius: 10%;
     border-color: black;
+    background-color: var(--img-background);
     width: 300px;
     height: 300px;
     margin: auto;
@@ -105,6 +107,15 @@ h2 {
     border-radius: 10%;
 }
 
+.weather_information {
+    background-color: var(--img-background);
+    width: 300px;
+    margin: 0 auto;
+    border: solid;
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
 .temperature {
     text-align: center;
     font-size: 2rem;
@@ -112,6 +123,7 @@ h2 {
 
 .hilow h3 {
     margin: 5px 0;
+    color: var(--charcoal);
 }
 
 .hilow {
@@ -238,7 +250,7 @@ footer p, a{
 @media only screen and (min-width: 700px) {
     main {
         grid-template-columns: 40% 1fr;
-        grid-template-rows: 7fr;
+        grid-template-rows: 40px 50px 1fr;
     }
 
     .fHead {
@@ -268,6 +280,10 @@ footer p, a{
         display: block;
     }
 
+    .weather_information {
+        width: 150px;
+    }
+
     .temperature {
         font-size: 1.3rem;
     }
@@ -282,11 +298,15 @@ footer p, a{
     .sun .info {
         margin: .2rem;
     }
+
+    .sun h3 {
+        color: var(--charcoal);
+    }
     
     .forecast {
         display: grid;
         grid-template-columns: 3fr;
-        grid-template-rows: 3rem 9rem 3rem;
+        grid-template-rows: 3rem 14rem 14rem;
         text-align: center;
         justify-content: center;
         margin: 0 auto;
@@ -308,7 +328,7 @@ footer p, a{
     #fInfo h3 {
         margin-top: 0;
         margin-bottom: .5rem;
-        color: var(--french-gray);
+        color: var(--hunter-green);
         font-weight: 900;
     }
 
@@ -334,18 +354,20 @@ footer p, a{
 
     .fImg {
         border-radius: 10%;
+        background-color: var(--img-background);
         border: solid;
         border-color: black;
     }
 
     .fTemp {
         font-size: .8rem;
+        background-color: var(--img-background);
+        width: 105px;
+        margin: 0 auto;
+        margin-top: 1rem;
+        border: solid;
+        border-radius: 10px;
     }
-
-    /* .fHigh, .fLow {
-        color: var(--lion);
-        font-weight: 700;
-    } */
 
     .fHigh {
         margin-top: .2rem;

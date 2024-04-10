@@ -1,4 +1,5 @@
-import { setLocalStorage } from "../js/utilities.mjs";
+import { setLocalStorage } from "./Utilities.mjs";
+import { renderData } from "./Render.mjs"
 
 let curWeather = false;
 let curForecast = false;
@@ -17,7 +18,6 @@ export default class WeatherData {
             if (response.ok) {
                 const data = await response.json();
                 this.saveWeather(data, curWeather, curForecast);
-                console.log(data);
             } else {
                 throw Error(await response.text());
             } 
@@ -28,12 +28,14 @@ export default class WeatherData {
 
     async init () {
         this.getWeather(this.currentPath, curWeather=true, curForecast=false);
-        this.getWeather(this.forecastPath, curWeather=false, curForecast=True);
+        this.getWeather(this.forecastPath, curWeather=false, curForecast=true);
+        renderData();
     }
+
 
     saveWeather (data, curWeather, curForecast) {
         let key = "";
-        const weatherSave = [];
+        let weatherSave = [];
         const weatherArray = [];
         
         if (curWeather) {
@@ -42,33 +44,51 @@ export default class WeatherData {
             weatherArray.push(data.wind.speed);
             weatherArray.push(data.sys.sunrise);
             weatherArray.push(data.sys.sunset);
-            weatherArray.push(data.weather.ico);
-            weatherArray.push(data.weather.descriptioin);
-            weatherArray.push(dt);
-            weatherSave = JSON.stringify(weatherArray);
+            weatherArray.push(data.weather[0].icon);
+            weatherArray.push(data.weather[0].description);
+            weatherArray.push(data.dt);
+            weatherSave = JSON.stringify(weatherArray);     // maybe put this just before the save to local storage
             key = 'ls-cWeather'; 
         }
 
         if (curForecast) {
-            let item;
-            for (item in data.list) {
-                let dateTime = new Date(item.clout.dt * 1000);
-                let dHour = dateTime.getHours();
-                if (dHour == '12:00:00') {
-                    weatherArray.push(item.main.pressure);
-                    weatherArray.push(item.main.temp);
-                    weatherArray.push(item.weather.icon);
-                    weatherArray.push(item.weather.description);
-                    weatherArray.push(item.wind.speed);
-                    weatherSave = JSON.stringify(weatherArray);
-                    key = 'ls-fWeather';
-                }
+            if(Array.isArray(data.list)) {
+                data.list.forEach((item) => {
+                    let dateTime = new Date(item.dt * 1000);
+                    let dHour = ((dateTime.getHours() * 60) + dateTime.getTimezoneOffset()) / 60;
+                    if (dHour == '12') {
+                        weatherArray.push({
+                            weatherDate: item.dt,
+                            pressure: item.main.pressure,
+                            temperature: item.main.temp,
+                            icon: item.weather[0].icon,
+                            description: item.weather[0].description,
+                            wind: item.wind.speed
+                        });
+                    }
+                });
+
+                const fWeatherObj = {};
+                weatherArray.forEach((day, index) => {
+                    const key = `day${index + 1}`;
+                    fWeatherObj[key] = {
+                        date: day.weatherDate,
+                        pressure: day.pressure,
+                        temperature: day.temperature,
+                        icon: day.icon,
+                        description: day.description,
+                        wind: day.wind
+                    }
+                });
+
+                weatherSave = JSON.stringify(fWeatherObj);
+                key = 'ls-fWeather';
             }
         }
 
         setLocalStorage(key, weatherSave);
-        weatherArray.length = 0;
-        weatherSave.length = 0;
+        weatherArray.length = 0;  // not sure if these lines are needed.
+        weatherSave = [];
         
     }
 }
