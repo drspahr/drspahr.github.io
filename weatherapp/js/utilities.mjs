@@ -1,3 +1,4 @@
+let x;
 export function setLocalStorage(key, data) {
     localStorage.setItem(key, data);
 }
