@@ -1,11 +1,9 @@
 export function setLocalStorage(key, data) {
     localStorage.setItem(key, data);
 }
-
 export function getLocalStorage(key) {
     return JSON.parse(localStorage.getItem(key));
 }
-
 export function getDateTime(date) {
     let wDay = getDay(date.getDay());
     let month = getMonth(date.getMonth());
@@ -14,7 +12,6 @@ export function getDateTime(date) {
 
     return `${wDay}, ${month} ${day}, ${year}`;
 }
-
 export function getDay(day) {
     let weekDay;
     switch (day) {
@@ -27,7 +24,6 @@ export function getDay(day) {
         case 6: weekDay = "Saturday"; break;
     } return weekDay;
 }
-
 export function getMonth(month) {
     let curMonth;
     switch (month) {

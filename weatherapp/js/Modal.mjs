@@ -18,16 +18,13 @@ window.addEventListener('resize', function() {
         modal.style.display = "none";
     }
 })
-
 export function openForecast() {
     if (window.innerWidth <= 699)
     modal.style.display = "block";
 }
-
 export function closeForecast() {
     modal.style.display = "none";
 }
-
 export function outsideClick(e) {
     if (e.target == modal) modal.style.display = "none";
 }
