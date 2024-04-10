@@ -1,6 +1,7 @@
 import { getLocalStorage, getDay } from "./utilities.mjs";
 
 function currentWeatherData(data) {
+    const sect = document.querySelector('.data');
     // get data from local storage and assign to page
     const sunrise = document.querySelector('.sunrise');
     const sunset = document.querySelector('.sunset');
@@ -32,7 +33,8 @@ function currentWeatherData(data) {
     weatherSmallIcon.setAttribute('width', 150);
     weatherSmallIcon.setAttribute('height', 150);
     weatherSmallIcon.setAttribute('alt', desc);
-    //return 
+
+    sect.style.display = 'block';
 }
 
 function forecastWeatherTemplate(data) {
