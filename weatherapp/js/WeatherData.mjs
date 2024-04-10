@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./Utilities.mjs";
+import { setLocalStorage } from "./utilities.mjs";
 import { renderData } from "./Render.mjs"
 
 let curWeather = false;

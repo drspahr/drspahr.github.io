@@ -1,4 +1,4 @@
-import { getLocalStorage, getDay } from "./Utilities.mjs";
+import { getLocalStorage, getDay } from "./utilities.mjs";
 
 function currentWeatherData(data) {
     // get data from local storage and assign to page

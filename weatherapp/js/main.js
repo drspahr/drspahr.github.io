@@ -1,5 +1,5 @@
 import WeatherData from "./WeatherData.mjs";
-import { getDateTime } from "./Utilities.mjs";
+import { getDateTime } from "./utilities.mjs";
 import { openForecast, closeForecast, outsideClick } from "./Modal.mjs";
 
 const todayDate = getDateTime(new Date());
