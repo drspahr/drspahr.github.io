@@ -6,7 +6,6 @@ function currentWeatherData(data) {
     const sunset = document.querySelector('.sunset');
     const temp = document.querySelector('.tHigh');
     const wind = document.querySelector('.wind');
-    // const bPressure = document.querySelector('.bPressure');
     const weatherLargeIcon = document.querySelector('#img_select');
     const weatherSmallIcon = document.querySelector('#img_select_small');
     const iconSrc = `https://openweathermap.org/img/wn/${data[5]}@2x.png`;
@@ -21,7 +20,6 @@ function currentWeatherData(data) {
     // temperature, wind and pressure
     temp.textContent = data[1];
     wind.textContent = data[2];
-    // bPressure.textContent = data[0];
 
     // weather icon for large image
     weatherLargeIcon.setAttribute('src', iconSrc);

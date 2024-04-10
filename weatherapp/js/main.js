@@ -17,6 +17,3 @@ submit_Loc.addEventListener('click', (e) => {
     const weather = new WeatherData(city, state);
     weather.init();
 });
-
-// const weather = new WeatherData(city, state);
-// weather.init();

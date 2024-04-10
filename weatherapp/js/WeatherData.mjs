@@ -32,7 +32,6 @@ export default class WeatherData {
         renderData();
     }
 
-
     saveWeather (data, curWeather, curForecast) {
         let key = "";
         let weatherSave = [];
@@ -47,10 +46,9 @@ export default class WeatherData {
             weatherArray.push(data.weather[0].icon);
             weatherArray.push(data.weather[0].description);
             weatherArray.push(data.dt);
-            weatherSave = JSON.stringify(weatherArray);     // maybe put this just before the save to local storage
+            weatherSave = JSON.stringify(weatherArray); 
             key = 'ls-cWeather'; 
         }
-
         if (curForecast) {
             if(Array.isArray(data.list)) {
                 data.list.forEach((item) => {
@@ -67,7 +65,6 @@ export default class WeatherData {
                         });
                     }
                 });
-
                 const fWeatherObj = {};
                 weatherArray.forEach((day, index) => {
                     const key = `day${index + 1}`;
@@ -80,7 +77,6 @@ export default class WeatherData {
                         wind: day.wind
                     }
                 });
-
                 weatherSave = JSON.stringify(fWeatherObj);
                 key = 'ls-fWeather';
             }
@@ -89,6 +85,5 @@ export default class WeatherData {
         setLocalStorage(key, weatherSave);
         weatherArray.length = 0;  // not sure if these lines are needed.
         weatherSave = [];
-        
     }
 }
